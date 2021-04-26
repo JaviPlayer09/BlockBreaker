@@ -117,8 +117,8 @@ class Block(pygame.sprite.Sprite):
 
 def load_image(filename, transparent=False):
         try: image = pygame.image.load(filename)
-        except pygame.error, message:
-                raise SystemExit, message
+        except pygame.error:
+                raise SystemExit
         image = image.convert()
         if transparent:
                 color = image.get_at((0,0))
@@ -193,7 +193,7 @@ def main():
         # Eventos de teclado
         for event in pygame.event.get():
             if event.type == QUIT:
-            	pygame.quit()
+                pygame.quit()
                 sys.exit()
 
             elif event.type == KEYDOWN:
@@ -254,6 +254,6 @@ def main():
         
         
     
-    	pygame.display.update()
+        pygame.display.update()
 
 main()
